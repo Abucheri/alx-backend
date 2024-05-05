@@ -92,6 +92,13 @@ class Server:
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Any]:
         """
         Returns a dictionary containing hypermedia pagination details.
+        This method takes the same arguments as get_page: page (default 1)
+        and page_size (default 10). It calls get_page to retrieve the dataset
+        for the specified page. It calculates the total number of pages using
+        the total dataset length and the specified page size. It determines the
+        next_page and prev_page numbers based on the current page and total
+        number of pages. Finally, it returns a dictionary containing
+        hypermedia pagination details.
 
         Args:
             page (int, optional): Page number (1-indexed). Defaults to 1.
