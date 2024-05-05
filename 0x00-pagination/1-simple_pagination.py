@@ -31,6 +31,11 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
 
 class Server:
     """Server class to paginate a database of popular baby names.
+    This class represents a server handling pagination for a dataset
+    of popular baby names. It has a class-level constant DATA_FILE set
+    to "Popular_Baby_Names.csv", which is the filename of the dataset.
+    The constructor method __init__ initializes the __dataset attribute
+    to None.
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 
@@ -39,6 +44,10 @@ class Server:
 
     def dataset(self) -> List[List]:
         """Cached dataset
+        This method loads the dataset from the CSV file into memory and
+        caches it. It returns the dataset as a list of lists, excluding
+        the header row. The method is documented with a docstring describing
+        its purpose and behavior.
         """
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
@@ -51,6 +60,16 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
         Returns the requested page of the dataset.
+        This method retrieves the requested page of the dataset.
+        It takes two integer arguments: page (default value 1) and
+        page_size (default value 10). Assertions are used to ensure that
+        both arguments are positive integers. It retrieves the dataset using
+        the dataset method and calculates the start and end indexes for the
+        requested page using the index_range function. If the start index is
+        within the range of the dataset, it returns the subset of the dataset
+        corresponding to the requested page. Otherwise, it returns an empty
+        list.The method is documented with a detailed docstring explaining its
+        purpose, parameters, and return value.
 
         Args:
             page (int, optional): Page number (1-indexed). Defaults to 1.
