@@ -1,5 +1,15 @@
 # 0x00. Pagination
 
+![3646eb02de6527ca5d83](https://github.com/Abucheri/alx-backend/assets/24778489/1822287b-e3ed-4379-863d-ece01620e4c6)
+
+
+![746187b76bea1f46030e](https://github.com/Abucheri/alx-backend/assets/24778489/996e365b-5799-443d-8b8c-c3a0fd16e9ce)
+
+
+![665ce871c2ecc66a8e71](https://github.com/Abucheri/alx-backend/assets/24778489/bded9be1-20ea-42e4-8c24-4138118e2f93)
+
+
+
 ## Setup: `Popular_Baby_Names.csv`
 
 - [use this data file](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/misc/2020/5/7d3576d97e7560ae85135cc214ffe2b3412c51d7.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240505%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240505T174149Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=f8f812b940a360782866b148effb474cbf804b60d8046743f4361ef172f688cf) for your project
