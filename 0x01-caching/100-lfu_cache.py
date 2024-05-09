@@ -60,7 +60,8 @@ class LFUCache(BaseCaching):
             The item associated with the given key, or None if the key is not
             found or is None.
         """
-        if key is not None and key in self.cache_data:
-            self.keys_freqs[key] += 1
-            return self.cache_data[key]
+        if key is not None:
+            if key in self.cache_data:
+                self.keys_freqs[key] += 1
+                return self.cache_data[key]
         return None
