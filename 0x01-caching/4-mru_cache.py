@@ -3,6 +3,8 @@
 Defines the MRUCache class
 """
 
+from collections import OrderedDict
+
 BaseCaching = __import__('base_caching').BaseCaching
 
 
@@ -16,6 +18,7 @@ class MRUCache(BaseCaching):
         Initializes the MRUCache instance.
         """
         super().__init__()
+        self.cache_data = OrderedDict()
 
     def put(self, key, item):
         """
@@ -30,8 +33,7 @@ class MRUCache(BaseCaching):
         """
         if key is not None and item is not None:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                most_recently_used_key = max(self.cache_data,
-                                             key=self.cache_data.get)
+                most_recently_used_key = next(reversed(self.cache_data))
                 del self.cache_data[most_recently_used_key]
                 print("DISCARD:", most_recently_used_key)
             self.cache_data[key] = item
@@ -48,5 +50,8 @@ class MRUCache(BaseCaching):
             found or is None.
         """
         if key is not None and key in self.cache_data:
-            return self.cache_data[key]
+            # Move the accessed item to the end to maintain MRU order
+            value = self.cache_data.pop(key)
+            self.cache_data[key] = value
+            return value
         return None
