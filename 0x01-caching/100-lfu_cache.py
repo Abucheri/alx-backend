@@ -33,19 +33,15 @@ class LFUCache(BaseCaching):
             None
         """
         if key is not None and item is not None:
-            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 least_freqs = min(self.keys_freqs.values())
                 least_freq_keys = [k for k, v in self.keys_freqs.items()
                                    if v == least_freqs]
-                if len(least_freq_keys) > 1:
-                    least_recently_used_key = next(iter(self.cache_data))
-                    del self.cache_data[least_recently_used_key]
-                    del self.keys_freqs[least_recently_used_key]
-                    print("DISCARD:", least_recently_used_key)
-                else:
-                    del self.cache_data[least_freq_keys[0]]
-                    del self.keys_freqs[least_freq_keys[0]]
-                    print("DISCARD:", least_freq_keys[0])
+                least_recently_used_key = min(least_freq_keys,
+                                              key=lambda k: self.cache_data[k])
+                del self.cache_data[least_recently_used_key]
+                del self.keys_freqs[least_recently_used_key]
+                print("DISCARD:", least_recently_used_key)
             self.cache_data[key] = item
             self.keys_freqs[key] = 1
 
