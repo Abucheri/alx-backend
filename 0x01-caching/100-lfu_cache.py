@@ -33,7 +33,7 @@ class LFUCache(BaseCaching):
             None
         """
         if key is not None and item is not None:
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 least_freqs = min(self.keys_freqs.values())
                 least_freq_keys = [k for k, v in self.keys_freqs.items()
                                    if v == least_freqs]
@@ -60,8 +60,7 @@ class LFUCache(BaseCaching):
             The item associated with the given key, or None if the key is not
             found or is None.
         """
-        if key is not None:
-            if key in self.cache_data:
-                self.keys_freqs[key] += 1
-                return self.cache_data[key]
+        if key is not None and key in self.cache_data:
+            self.keys_freqs[key] += 1
+            return self.cache_data[key]
         return None
