@@ -18,8 +18,11 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app.config.from_object(Config)
+
+
 @app.route('/')
-def index():
+def index() -> str:
     """Render index.html"""
     return render_template('1-index.html')
 
