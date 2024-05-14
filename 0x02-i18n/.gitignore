@@ -17,7 +17,6 @@ ENV/
 
 # Miscellaneous
 *.log
-*.pot
 *.tmp
 *.bak
 *.swp
