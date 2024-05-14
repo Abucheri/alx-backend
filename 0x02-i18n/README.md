@@ -1,5 +1,8 @@
 # 0x02. i18n
 
+![91e1c50322b2428428f9](https://github.com/Abucheri/alx-backend/assets/24778489/8268bb1c-1b04-4ad9-8950-bd42e0a6377b)
+
+
 ## Tasks
 
 0. Basic Flask app
@@ -67,7 +70,8 @@
 	- In this task, you will implement a way to force a particular locale by passing the `locale=fr` parameter to your app’s URLs.
 	- In your `get_locale` function, detect if the incoming request contains `locale` argument and ifs value is a supported locale, return it. If not or if the parameter is not present, resort to the previous default behavior.
 	- Now you should be able to test different translations by visiting `http://127.0.0.1:5000?locale=[fr|en]`.
-	- ***Visiting*** `http://127.0.0.1:5000/?locale=fr` ***should display this level 1 heading***:
+	- ***Visiting*** `http://127.0.0.1:5000/?locale=fr` ***should display this level 1 heading***:  <img width="254" alt="f958f4a1529b535027ce" src="https://github.com/Abucheri/alx-backend/assets/24778489/10b38517-7076-46e0-864b-180c4b2f5a08">
+
 
 5. Mock logging in
 
@@ -93,7 +97,12 @@
 	| `not_logged_in` | `"You are not logged in."` | `"Vous n'êtes pas connecté."` |
 
 	- ***Visiting*** `http://127.0.0.1:5000/` ***in your browser should display this***:
-	- ***Visiting*** `http://127.0.0.1:5000/?login_as=2` ***in your browser should display this***:
+
+	<img width="213" alt="2c5b2c8190f88c6b4668" src="https://github.com/Abucheri/alx-backend/assets/24778489/21dcdca4-98d4-4f27-a025-4d03499bca0c">
+
+ 
+	- ***Visiting*** `http://127.0.0.1:5000/?login_as=2` ***in your browser should display this***:  <img width="259" alt="277f24308c856a09908c" src="https://github.com/Abucheri/alx-backend/assets/24778489/c12f6c8d-2946-482e-8253-6cb0e2b4b8bc">
+
 
 6. Use user locale
 
@@ -106,6 +115,10 @@
 		4. Default locale
 
 	- Test by logging in as different users
+
+	<img width="272" alt="9941b480b0b9d87dc5de" src="https://github.com/Abucheri/alx-backend/assets/24778489/471ca45b-e27a-4401-b81f-a684db8417cf">
+
+	 
 
 7. Infer appropriate time zone
 
@@ -129,4 +142,9 @@
 	| `current_time_is` | `"The current time is %(current_time)s."` | `"Nous sommes le %(current_time)s."` |
 
 	- ***Displaying the time in French looks like this***:
+
+	<img width="299" alt="bba4805d6dca0a46a0f6" src="https://github.com/Abucheri/alx-backend/assets/24778489/fed9e247-941a-4c4c-ab82-5252829575b4">
+
 	- ***Displaying the time in English looks like this***:
+
+	<img width="328" alt="54f3be802024dbcf06f4" src="https://github.com/Abucheri/alx-backend/assets/24778489/45bb4f66-b421-4ea8-bfb5-13b76ee39204">
