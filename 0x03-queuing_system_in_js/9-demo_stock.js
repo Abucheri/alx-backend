@@ -44,17 +44,6 @@ client.on('error', (error) => {
   console.error(`Redis client error: ${error}`);
 });
 
-// Function to get current reserved stock by itemId from Redis
-async function getCurrentReservedStockById(itemId) {
-  try {
-    const stock = await getAsync(`item.${itemId}`);
-    return stock !== null ? parseInt(stock) : null;
-  } catch (error) {
-    console.error(`Error retrieving stock for item ${itemId}: ${error}`);
-    throw error;
-  }
-}
-
 // Express setup
 const app = express();
 const port = 1245;
@@ -77,8 +66,8 @@ app.get('/list_products/:itemId', async (req, res) => {
   }
 
   try {
-    const currentStock = await getCurrentReservedStockById(itemId);
-    const stock = currentStock !== null ? currentStock : item.initialAvailableQuantity;
+    const currentStock = await getAsync(`item.${itemId}`);
+    const stock = currentStock !== null ? parseInt(currentStock) : item.initialAvailableQuantity;
 
     res.json({
       itemId: item.itemId,
@@ -104,10 +93,12 @@ app.get('/reserve_product/:itemId', async (req, res) => {
   }
 
   try {
-    let currentStock = await getCurrentReservedStockById(itemId);
+    let currentStock = await getAsync(`item.${itemId}`);
 
     if (currentStock === null) {
       currentStock = item.initialAvailableQuantity;
+    } else {
+      currentStock = parseInt(currentStock);
     }
 
     if (currentStock <= 0) {
@@ -127,4 +118,3 @@ app.get('/reserve_product/:itemId', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
-
