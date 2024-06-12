@@ -3,6 +3,38 @@
 ![1486e02a78cdf7b4557c](https://github.com/Abucheri/alx-backend/assets/24778489/1a0acb0f-a14b-4f88-82be-c5004ce37ce8)
 
 
+## Project Setup
+
+### Prerequisites
+
+- Node.js (version 12.x)
+- Redis (version 6.0.10)
+- Ubuntu 18.04
+
+### Installation
+
+- Install Redis:
+
+```sh
+wget http://download.redis.io/releases/redis-6.0.10.tar.gz
+   tar xzf redis-6.0.10.tar.gz
+   cd redis-6.0.10
+   make
+   src/redis-server &
+```
+
+- Verify Redis installation
+
+```
+src/redis-cli ping
+```
+
+- Find the PID of the Redis server
+
+```
+ps aux | grep redis-server
+```
+
 ## Required Files for the Project
 
 `package.json`
