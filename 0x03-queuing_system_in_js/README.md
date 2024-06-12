@@ -1,5 +1,8 @@
 # 0x03. Queuing System in JS
 
+![1486e02a78cdf7b4557c](https://github.com/Abucheri/alx-backend/assets/24778489/1a0acb0f-a14b-4f88-82be-c5004ce37ce8)
+
+
 ## Required Files for the Project
 
 `package.json`
@@ -382,10 +385,10 @@ Don’t forget to run `$ npm install` when you have the `package.json`
 	}
 	```
 
-		- Create a queue named `push_notification_code`, and create a job with the object created before
-		- When the job is created without error, log to the console `Notification job created: JOB ID`
-		- When the job is completed, log to the console `Notification job completed`
-		- When the job is failing, log to the console `Notification job failed`
+	- Create a queue named `push_notification_code`, and create a job with the object created before
+	- When the job is created without error, log to the console `Notification job created: JOB ID`
+	- When the job is completed, log to the console `Notification job completed`
+	- When the job is failing, log to the console `Notification job failed`
 
 	```
 	bob@dylan:~$ npm run dev 6-job_creator.js 
